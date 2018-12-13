@@ -24,3 +24,5 @@ yarn-error.log*
 
 # keys
 Keys.js
+
+.env
