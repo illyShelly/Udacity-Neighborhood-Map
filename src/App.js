@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import keys from './Keys';
 import * as myLocations from './locations.json';
+import styles from './Styles';
 
 // console.log(process.env.REACT_APP_xxx);
 
@@ -30,8 +31,8 @@ class App extends Component {
   // fetchVenues = () => {
   //   const url = 'https://api.foursquare.com/v2/venues/explore';
   //   const param = {
-  //     my_id: '',
-  //     my_secret: '',
+  //     my_id: '${MY_ID}',
+  //     my_secret: '${MY_SECRET}',
   //     query: 'coffee',
   //     lat: 48.208176,
   //     lng: 16.373819,
@@ -58,7 +59,7 @@ class App extends Component {
     let map = new window.google.maps.Map(document.getElementById('map'), {
       center: latLng,
       zoom: 13,
-      // styles: styles
+      styles: styles
     });
 
     const { locations } = this.state;
