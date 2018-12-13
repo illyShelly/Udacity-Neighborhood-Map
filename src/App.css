@@ -1,4 +1,10 @@
-.App {
+html, body {
+  height: 100%;
+}
+
+#map {
+  height: 100vh;
+}/*.App {
   text-align: center;
 }
 
@@ -30,3 +36,4 @@
     transform: rotate(360deg);
   }
 }
+*/
