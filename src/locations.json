@@ -1,0 +1,36 @@
+[
+      {
+        "title": "Christmas Rathaus Chrismas Market",
+        "location": {"lat": 48.2109, "lng": 16.3572},
+        "image": "https://l7.alamy.com/zooms/fae43cb5f28e4e5e8ffa4f94730c296b/advent-and-christmas-market-in-front-of-belvedere-palace-wien-vienna-g74t62.jpg"
+      },
+      {
+        "title": "Christmas Village Belvedere Palace",
+        "location": {"lat": 48.191439, "lng": 16.380787},
+        "image": "https://events.wien.info/media/full/40848_1.jpg"
+      },
+      {
+        "title": "Christmas Village Maria-Theresien Platz",
+        "location": {"lat": 48.210033, "lng": 16.363449},
+        "image": "https://www.wien.info/media/images/weihnachtsdorf-kunsthistorisches-museum-naturhistorisches-museum.jpg/image_gallery"
+      },
+      {
+        "title": "Christmas Market Schonbrunn Palace",
+        "location": {"lat": 48.184864, "lng": 16.312241},
+        "image": "https://www.wien.info/media/images/schoenbrunner-christkindlmarkt-weihnachtsmarkt-abenstimmung-christbaum-schloss-schoenbrunn-gaeste-traditionell-weihnachtszeit-3to2.jpeg/image_gallery"
+      },
+      {
+        "title": "Christmas Market at Karlzplatz",
+        "location": {"lat": 48.199167, "lng": 16.369590},
+        "image": "https://www.vienna.at/2017/11/art-advent-karlsplatz-16-9-020638752180-1024x576.jpg"
+      },
+      {
+        "title": "Christmas Market at Hof",
+        "location": {"lat": 48.211105, "lng": 16.367582},
+        "image": "https://www.wien.info/media/images/adventmarkt-am-hof-weihnachtsmarkt-christkindlmarkt-kunsthandwerksmarkt.jpg/image_gallery"},
+      {
+        "title": "Christmas Market Freyung",
+        "location": {"lat": 48.207165838, "lng": 16.359331896},
+        "image": "https://www.wien.info/media/images/weihnachtsmarkt-adventmarkt-altwiener-christkindlmarkt-freyung-3to2.jpeg/image_gallery"
+      }
+]
