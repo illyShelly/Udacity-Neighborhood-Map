@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import './Keys.js';
 import keys from './Keys';
 import * as myLocations from './locations.json';
 
@@ -10,15 +9,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: myLocations,
-      markers: [],
-      data: ''
+      locations: myLocations,
+      map: '',
+      infoWindow: ''
+      // markers: [],
+      // data: ''
     }
   }
   // calling renderMap
   componentDidMount() {
     this.renderMap()
   }
+
   // fetchVenues = () => {
   //   const url = 'https://api.foursquare.com/v2/venues/explore';
   //   const param = {
@@ -26,33 +28,51 @@ class App extends Component {
   //     my_secret: '',
   //     query: 'coffee',
   //     lat: 48.208176,
-  //     lng: 16.373819
+  //     lng: 16.373819,
+  //      v: "20181312"
   //   }
+
+  //   // fetch(url + param)
+  //   // .then(response => response.json())
+  //   // .then(data => console.log(data))
   // }
+
   renderMap = () => {
-    const url = "https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3&callback=initMap";
+    const url = "https://maps.googleapis.com/maps/api/js?key=${API}&v=3&callback=initMap";
     runScript(url)
     window.initMap = this.initMap
   }
 
   // function initMap() {}
   initMap = () => {
-    const vienna = {lat: 48.208176, lng: 16.373819};
+    const latLng = {lat: 48.208176, lng: 16.373819};
 
-    const map = new window.google.maps.Map(document.getElementById('map'), {
-      center: vienna,
+    let map = new window.google.maps.Map(document.getElementById('map'), {
+      center: latLng,
       zoom: 13
     });
 
-    let marker = new window.google.maps.Marker({
-      position: vienna,
-      map: map,
-      title: 'Aloha noha'
-    });
+    const { locations } = this.state;
+    let largeInfoWindow = new window.google.maps.InfoWindow();
 
-    // let infoWindow = new window.google.infoWindow({
-    // })
 
+    console.log(locations.default[0]);
+    for (let i = 0; i < locations.default.length; i++) {
+
+      let position = locations.default[i].location;
+      let title = locations.default[i].title;
+      let img = locations.default[i].image;
+      let id = i;
+
+      let marker = new window.google.maps.Marker({
+        map: map,
+        position: position,
+        title: title,
+        image: img,
+        id_marker: id,
+        animation: window.google.maps.Animation.DROP,
+      });
+    }
   }
 
   render() {
@@ -64,14 +84,14 @@ class App extends Component {
   }
 }
 
+export default App;
+
 function runScript(url) {
   // var reference = window.document.getElementsByTagName('script')[0];
-  var script = window.document.createElement('script');
+  let script = window.document.createElement('script');
   script.src = url
   script.async = true
   script.defer = true
   document.body.appendChild(script);
   // reference.insertBefore(script, reference.childNodes[0])
 }
-
-export default App;
