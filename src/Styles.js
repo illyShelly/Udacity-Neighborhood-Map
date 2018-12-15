@@ -2,7 +2,7 @@ const styles = [
          {
             featureType: 'water',
             stylers: [
-              { color: '#19a0d8' }
+              { color: '#00d0ff' }
             ]
           },
           {
@@ -17,7 +17,7 @@ const styles = [
             featureType: 'administrative',
             elementType: 'labels.text.fill',
             stylers: [
-              { color: '#006080' } //name of the city
+              { color: '#231a1c' } //name of the city
             ]
           },
           {
@@ -61,15 +61,15 @@ const styles = [
             elementType: 'geometry',
             stylers: [
               { visibility: 'on' },
-              { color: '#5f9071' } // darker green - parks
+              { color: '#425466' } // parks
             ]
           },
           {
             featureType: 'road.highway',
             elementType: 'geometry.fill',
             stylers: [
-              { color: '#efe9e4' },
-              { lightness: -25 }
+              { color: '#565147' }, // roads
+              { lightness: 25 }
             ]
           }];
 

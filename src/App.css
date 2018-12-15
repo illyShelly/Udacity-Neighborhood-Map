@@ -4,7 +4,35 @@ html, body {
 
 #map {
   height: 100vh;
-}/*.App {
+}
+
+.card {
+  padding: 10px;
+  color: #26333a;
+  border-left: 1px solid #2c3b40;
+  border-right: 1px solid #999;
+  border-radius: 50px 2px;
+  /*background: linear-gradient(0.15turn, #990a3c, #0a5b99);*/
+  background: linear-gradient(0.33turn, #3e5468, #ebf8e1, #f9d64d)
+}
+
+/*7E0F4B*/
+.card div {
+  min-width: 100px;
+}
+
+.card h2 {
+  text-transform: capitalize;
+  padding: 5px 0px 15px 5px;
+  margin: 0;
+}
+
+.card p {
+  font-size: 15px;
+  padding: 5px;
+  margin: 0;
+}
+/*.App {
   text-align: center;
 }
 
@@ -25,7 +53,7 @@ html, body {
 }
 
 .App-link {
-  color: #61dafb;
+  color: black;
 }
 
 @keyframes App-logo-spin {
