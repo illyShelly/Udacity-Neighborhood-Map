@@ -151,8 +151,8 @@ class App extends Component {
     this.setState({
       search: event,
       venues: this.state.searchVenues.filter((searchVenue) =>
-              // console.log(searchVenue.venue.name)
-              new RegExp(event, "i").exec(searchVenue.venue.name))
+            // console.log(searchVenue.venue.name)
+            new RegExp(event, "i").exec(searchVenue.venue.name))
     });
     // console.log("after filter: " + this.state.venues);
   }

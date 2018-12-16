@@ -2,7 +2,7 @@ const styles = [
          {
             featureType: 'water',
             stylers: [
-              { color: '#00d0ff' }
+              { color: '#2493d4' }
             ]
           },
           {

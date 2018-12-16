@@ -21,6 +21,7 @@ class Sidebar extends Component {
           />
         </div>
 
+      {this.props.venues.length !== 0 && (
         <ul className="cafe-list">
           { this.props.venues.map((cafe) => (
             <li key={cafe.venue.id}
@@ -29,6 +30,12 @@ class Sidebar extends Component {
             </li>
             ))}
         </ul>
+        )
+      }
+      {this.props.venues.length === 0 && (
+        <p className="alert">This café isn't in our DB</p>
+        )
+       }
 
       </aside>
       // </div>

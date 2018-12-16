@@ -11,7 +11,7 @@ html, body {
   width: 100%;
   text-align: center;
   padding: 15px;
-  background-color: #26333a;
+  background-color: #2b3b44;
 }
 
 nav h1 {
@@ -79,9 +79,18 @@ li:hover {
   /*background: linear-gradient(0.35turn, #3e5468, #e1f8f6);*/
   /*transition: background-color 0.5s ease;*/
   background-color: white;
-  color: #990a3c;
+  color: #3e5468;
 }
 
+.alert {
+  color: #ff0066;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+  word-spacing: 3.5px;
+  letter-spacing: 2.5px;
+}
 
 /* INFOWINDOW CONTENT */
 .card {
@@ -109,4 +118,43 @@ li:hover {
   font-size: 15px;
   padding: 5px;
   margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+    aside {
+      flex-basis: 40%;
+    }
+    nav h1 {
+      font-size: 16px;
+      letter-spacing: 1.2px;
+    }
+    aside .search input {
+      height: 20px;
+      font-size: 14px;
+      letter-spacing: 0.8px;
+    }
+    .cafe-list li {
+      font-size: 14px;
+      padding: 0;
+    }
+
+    .card {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      border-radius: 0;
+    }
+    .card h2 {
+      font-size: 18px;
+    }
+    .card p {
+      font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    aside {
+      flex-basis: 30%;
+    }
+
 }
