@@ -20,7 +20,9 @@ class App extends Component {
     this.state = {
       // locations: myLocations,
       venues: [],
-      markers: []
+      markers: [],
+      searchVenues: [], // using for filtering when search
+      search: ''
    }
   }
 
@@ -56,10 +58,13 @@ class App extends Component {
       .then(response =>
         response.json())
       .then(data => { // curly brackets for 2 commands
-        console.log(data.response.groups[0].items)
+        // console.log(data.response.groups[0].items)
         // put callback fce from componentDidMount
         this.setState({
-          venues: data.response.groups[0].items },
+          venues: data.response.groups[0].items,
+          // added searchVenues -> using filter for search with RegExp
+          searchVenues: data.response.groups[0].items
+           },
           this.renderMap())
       })
       .catch(err => console.log('Error occurs ' + err))
@@ -97,6 +102,7 @@ class App extends Component {
     venues.map(item => {
       var position = {lat: item.venue.location.lat, lng: item.venue.location.lng}
       var title = item.venue.name;
+        // console.log(title);
       var address = item.venue.location.address;
       var postal = item.venue.location.postalCode;
       var id = item.venue.id;
@@ -141,12 +147,27 @@ class App extends Component {
     }) // end of mapping
   }
 
+  handleSearch = (event) => {
+    this.setState({
+      search: event,
+      venues: this.state.searchVenues.filter((searchVenue) =>
+              // console.log(searchVenue.venue.name)
+              new RegExp(event, "i").exec(searchVenue.venue.name))
+    });
+    // console.log("after filter: " + this.state.venues);
+  }
+
   render() {
     return (
       <div>
         <Navbar />
       <div className="App">
-        <Sidebar />
+        <Sidebar
+          venues={this.state.venues}
+          search={this.state.search}
+          searchVenues={this.state.venues}
+          handleSearch={this.handleSearch}
+        />
         <main>
           <div id="map"></div>
         </main>

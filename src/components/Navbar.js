@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Navbar(props) {
-  const placeholder = "";
 
   return (
     <div className="navbar">
