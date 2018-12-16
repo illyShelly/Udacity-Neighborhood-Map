@@ -2,8 +2,45 @@ html, body {
   height: 100%;
 }
 
+.App {
+  display: flex;
+}
+
+/*Navbar*/
+.navbar {
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  background-color: #26333a;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 2.5px;
+  color: #e1f8f6;
+}
+
+/*or using div with .sidebar*/
+aside {
+  flex-basis: 20%;
+  height: calc(100vh - 50px);
+  padding-left: 10px;
+  overflow-y: scroll; /* scroll just sidebar, not necessary position: sticky; and top: 0; */
+}
+
+main {
+  flex-grow: 1; /* spread the with next to sidebar */
+ /* width: 75%;
+  margin: 0;
+  padding: 0;*/
+}
+
 #map {
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 50px);
+  /*viewport whole height of the window*/
+  top: 0;
 }
 
 .card {
@@ -13,7 +50,7 @@ html, body {
   border-right: 1px solid #999;
   border-radius: 50px 2px;
   /*background: linear-gradient(0.15turn, #990a3c, #0a5b99);*/
-  background: linear-gradient(0.33turn, #3e5468, #ebf8e1, #f9d64d)
+  background: linear-gradient(0.27turn, #3e5468, #e1f8f6, #e6c130);
 }
 
 /*7E0F4B*/
@@ -32,36 +69,3 @@ html, body {
   padding: 5px;
   margin: 0;
 }
-/*.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: black;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/

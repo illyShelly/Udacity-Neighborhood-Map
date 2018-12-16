@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 // import * as myLocations from './locations.json';
 import styles from './Styles';
-
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 // console.log(process.env.REACT_APP_xxx);
 
  const API_KEY =`${process.env.REACT_APP_API_KEY}`
@@ -19,7 +20,7 @@ class App extends Component {
     this.state = {
       // locations: myLocations,
       venues: [],
-      marker: [],
+      markers: []
    }
   }
 
@@ -76,7 +77,7 @@ class App extends Component {
     // function initMap() {}
   initMap = () => {
 
-    const { venues } = this.state;
+    const { venues, markers } = this.state;
     const latLng = {lat: 48.208176, lng: 16.373819};
 
     let map = new window.google.maps.Map(document.getElementById('map'), {
@@ -111,9 +112,15 @@ class App extends Component {
         animation: window.google.maps.Animation.DROP, //marker falls down
       });
 
+      // Added marker to array
+      markers.push(marker);
+      // console.log(markers);
+      this.setState({
+        markers: markers
+      })
+
       // infowindow.setContent('<div>' +
-      // '<h3>' + marker.title + '</h3>' +
-      // '<h4>' + marker.address + ', ' + marker.postal + '</h4>' + '</div>')
+      // '<h3>' + marker.title + '</h3>' + '</div>')
       let infoContent = `
        <div class="card">
         <h2>${title}</h2>
@@ -136,9 +143,15 @@ class App extends Component {
 
   render() {
     return (
-      <main>
-        <div id="map"></div>
-      </main>
+      <div>
+        <Navbar />
+      <div className="App">
+        <Sidebar />
+        <main>
+          <div id="map"></div>
+        </main>
+      </div>
+      </div>
     )
   }
 }
