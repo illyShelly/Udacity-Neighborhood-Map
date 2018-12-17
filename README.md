@@ -48,7 +48,7 @@ my-map
 **[GithubPages]()**
 
 #### Locally on your machine
-* Download or clone the repo
+* Download or clone the repo `https://github.com/illyShelly/Udacity-Neighborhood-Map.git`
 * `cd` _Udacity-Neighborhood-Map_ folder
 * Install all dependencies with `yarn install or npm install`
 * Start the server with `yarn start or npm start`
