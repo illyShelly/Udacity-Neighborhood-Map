@@ -222,18 +222,18 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-      <div className="App">
-        <Sidebar
-          venues={this.state.venues}
-          search={this.state.search}
-          searchVenues={this.state.venues}
-          handleSearch={this.handleSearch}
-          handleClick={this.handleClick}
-        />
-        <main>
-          <div id="map" role="application"></div>
-        </main>
-      </div>
+        <div className="App">
+          <Sidebar
+            venues={this.state.venues}
+            search={this.state.search}
+            searchVenues={this.state.venues}
+            handleSearch={this.handleSearch}
+            handleClick={this.handleClick}
+          />
+          <main>
+            <div id="map" role="application"></div>
+          </main>
+        </div>
       </div>
     )
   }

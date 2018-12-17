@@ -10,7 +10,7 @@ This is Final **Project #8** which is developed for Google Front-End Nanodegree 
 
 ## Project Overview
 
-This is the FINAL Project #8 made for Udacity classroom on FEND+React track. To achieve the requirements - students must develop single page application featuring map of neighborhood with these functionality: highlighted locations, using third party data API about these locations and posibility to browse this content.
+Last Project #8 made for Udacity classroom on FEND+React track. To achieve the requirements - students must develop single page application featuring map of neighborhood with these functionality: highlighted locations, using third party data API about these locations and posibility to browse this content.
 
 #### From Scratch
 Starting app from scratch in React > link https://github.com/facebook/create-react-app
