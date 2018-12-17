@@ -26,6 +26,7 @@ class Sidebar extends Component {
             // onClick event listener takes cafe's id
             <li
               key={cafe.venue.id}
+              role="Menuitem"
               onClick={() => this.props.handleClick(cafe.venue.id)}
             >
               {cafe.venue.name}
@@ -34,7 +35,7 @@ class Sidebar extends Component {
         </ul>
         )
       }
-      {this.props.venues.length === 0 && (
+      {this.props.venues.length === 0 && this.props.search !== '' && (
         <p className="alert">This café isn't in our DB</p>
         )
        }

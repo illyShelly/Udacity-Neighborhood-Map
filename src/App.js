@@ -24,7 +24,7 @@ class App extends Component {
       markers: [],
       searchVenues: [], // using for filtering when search
       search: '',
-      selectMarker: []
+      selectCafe: null
    }
   }
 
@@ -90,14 +90,19 @@ class App extends Component {
     let map = new window.google.maps.Map(document.getElementById('map'), {
       center: latLng,
       zoom: 15,
-      styles: styles
+      styles: styles,
+      mapTypeControl: false, // hide satelite, terene option
+      streetViewControl: true,
+      streetViewControlOptions: {
+        position: window.google.maps.ControlPosition.LEFT_TOP
+          } // enable street view - icon is in top-left
     });
 
     // Create 1 infowindow - outside of looping/maping
     let infowindow = new window.google.maps.InfoWindow();
 
     // Choose icon of marker - when hover on sidebar
-    let defaultIcon = this.makeMarkerIcon('990a3c');
+    let defaultIcon = this.makeMarkerIcon('e6005c');
     let activeIcon = this.makeMarkerIcon('d4c382');
 
     // INSIDE OF VENUES WANT TO CREATE MARKER
@@ -144,14 +149,14 @@ class App extends Component {
        </div>
       `
       // Click event listener on Marker
-      marker.addListener('mouseover', function () {
+      marker.addListener('click', function () {
         // Change the content
         infowindow.setContent(infoContent);
         // open the infowindow on map with marker
         infowindow.open(map, marker);
         // marker.setIcon(activeIcon); nope
       });
-        infowindow.addListener('mouseout', function () {
+        infowindow.addListener('clickout', function () {
         // marker.setIcon(defaultIcon);
         infowindow.setMarker(null);
         // window.google.maps.event.clearInstanceListeners(marker);
@@ -159,7 +164,7 @@ class App extends Component {
     }) // end of mapping
   }
 
-  // Create shape and colors of markers
+  // Create shape and colors of markers - image
   makeMarkerIcon = (markerColor) => {
     let markerImage = new window.google.maps.MarkerImage(
       'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
@@ -181,32 +186,36 @@ class App extends Component {
     // console.log("after filter: " + this.state.venues);
   }
 
+// 1. approach
+// - empty array for selectMarker [] in state
+// - compare id of marker with id of Cafe
+// - when click on cafe - change color of marker
+// - push that marker to the selectMarker [...] setState({})
+// => solve remove color of marker and change to default again
+
+// 2. approach
+// - empty selectCafe as null in state
+// - check clickedCafe (id) with cafe (list of in Sidebar)
+// - push to that to setState({}) - change its state
+
+
   handleClick = (clickedCafe) => {
     // I FORGOT .map
     // handleClick i wrote this.props???
-
-    // check id marker with id of clicked café
-    // if(marker.id_marker === clickedCafe) {
-
-    // }
-    this.state.markers.map(marker => {
-      // console.log(marker.id_marker + "marker id");
-      // console.log(clickedCafe + "cafe id")
-      if(marker.id_marker === clickedCafe) {
-        this.setState({
-          selectMarker: marker
-        })
-        // this creates new classic icon from google
-          // marker.setIcon(this.activeIcon);
-        marker.setIcon(this.makeMarkerIcon('fbff00'));
-
-        // marker.setAnimation(window.google.maps.Animation.BOUNCE);
-        // window.google.maps.event.trigger(marker, 'click');
-      }
-      // outside if will colored all markers
+    this.setState({
+      selectCafe: clickedCafe
     })
-    // window.google.maps.event.clearListeners(this.marker, 'click')
-      // marker.setIcon(this.makeMarkerIcon('ce0a4e'))
+
+    this.state.markers.map(marker => {
+      if(marker.id_marker === clickedCafe) {
+        // add class to marker or change him
+         window.google.maps.event.trigger(marker, 'click');
+        marker.setIcon(this.makeMarkerIcon('80ffff'))
+        // change color of marker icon to default
+        setTimeout(() =>
+          { marker.setIcon(this.makeMarkerIcon('e6005c'))}, 3000);
+      }
+    })
   }
 
   render() {
