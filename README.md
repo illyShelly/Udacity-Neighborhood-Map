@@ -1,44 +1,70 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MyReads Udacity Project
 
-## Available Scripts
+This is Final **Project #8** which is developed for Google Front-End Nanodegree Program at Udacity. This project was made from scratch in React and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).made with REACT.  <!-- Web application is available on **[GithubPages](https://illyShelly.github.io/udacity-final-myreads)** -->
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+* [Project Overview](#overview)
+* [Get Started](#to-get-started)
+* [About The Project](#about-the-project)
+* [Contribution](#contribution)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Overview
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This is the FINAL Project #8 made for Udacity classroom on FEND+React track. To achieve the requirements - students must develop single page application featuring map of neighborhood with these functionality: highlighted locations, using third party data API about these locations and posibility to browse this content.
 
-### `npm test`
+#### From Scratch
+> link https://github.com/facebook/create-react-app
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Specification
 
-### `npm run build`
+#### Folder Structure
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+my-map
+  public/
+    index.html
+    manifest.json
+  src
+    components/
+      Navbar.js
+      Sidebar.js
+    App.css
+    App.js
+    App.test.js
+    index.css
+    serviceWorker.js
+    Styles.js
+  .env
+  .gitignore
+  .package-lock.json
+  package.json
+  README.md
+  yarn.lock
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Get Started
 
-### `npm run eject`
+#### Interact directly on GithubPages - in progress
+**[GithubPages]()**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Locally on your machine
+* Download or clone the repo
+* `cd` _Udacity-Neighborhood-Map_ folder
+* Install all dependencies with `yarn install or npm install`
+* Start the server with `yarn start or npm start`
+* If not opening automatically in your browser, visit `http://localhost:3000`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## About The Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This application is using third party API's. Goodle Maps JS, Foursquare getting data about the best cafés located in the historic center of Vienna (Austria). The web application is fully responsive with the opportunity to toggle the sidebar to interact only with the map.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Important: To run smoothly this application using Foursquare data, you need to provide client ID and Client Secret. At the same time to display and work with Google Maps is necessary to get API key.
 
-## Learn More
+Because this application does not have any images when providing data, after display particular Café is implemented Google Map feature of Street view and discover more particular location.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Escape RegExp - [`escape-string-regexp`](https://www.npmjs.com/package/escape-string-regexp)
+* Data fetched with Foursquare.com

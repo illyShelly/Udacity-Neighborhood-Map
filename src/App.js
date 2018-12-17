@@ -136,8 +136,8 @@ class App extends Component {
         markers: markers
       })
 
-      // display markers for handleClick for sidebar
-      console.log(markers);
+      // display markers for handleClick for sidebar - one by one added
+      // console.log(markers);
 
       // infowindow.setContent('<div>' +
       // '<h3>' + marker.title + '</h3>' + '</div>')
@@ -196,7 +196,7 @@ class App extends Component {
 // 2. approach
 // - empty selectCafe as null in state
 // - check clickedCafe (id) with cafe (list of in Sidebar)
-// - push to that to setState({}) - change its state
+// - push to that to setState({}) - change its state...
 
 
   handleClick = (clickedCafe) => {
@@ -213,7 +213,7 @@ class App extends Component {
         marker.setIcon(this.makeMarkerIcon('80ffff'))
         // change color of marker icon to default
         setTimeout(() =>
-          { marker.setIcon(this.makeMarkerIcon('e6005c'))}, 3000);
+          { marker.setIcon(this.makeMarkerIcon('e6005c'))}, 2500);
       }
     })
   }
@@ -231,7 +231,7 @@ class App extends Component {
           handleClick={this.handleClick}
         />
         <main>
-          <div id="map"></div>
+          <div id="map" role="application"></div>
         </main>
       </div>
       </div>

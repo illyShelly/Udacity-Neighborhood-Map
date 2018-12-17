@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-      // this.state = {
-      // }
+      this.state = {
+      }
   }
 
   render() {
     return (
-    // <div >
       <aside>
         <div className="search">
           <input
@@ -17,6 +16,8 @@ class Sidebar extends Component {
             placeholder='Search café...'
             onChange={(event) => this.props.handleSearch(event.target.value) }
             value={this.props.search}
+            aria-label="Filter Cafés"
+            tabIndex='0'
           />
         </div>
 
@@ -28,6 +29,7 @@ class Sidebar extends Component {
               key={cafe.venue.id}
               role="Menuitem"
               onClick={() => this.props.handleClick(cafe.venue.id)}
+              tabIndex='0'
             >
               {cafe.venue.name}
             </li>
@@ -41,7 +43,6 @@ class Sidebar extends Component {
        }
 
       </aside>
-      // </div>
     )
   }
 }
