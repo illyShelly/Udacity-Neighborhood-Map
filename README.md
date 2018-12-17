@@ -4,7 +4,7 @@ This is Final **Project #8** which is developed for Google Front-End Nanodegree 
 
 ## Table of Contents
 
-* [Project Overview](#overview)
+* [Project Overview](#project-overview)
 * [Get Started](#get-started)
 * [About The Project](#about-the-project)
 
