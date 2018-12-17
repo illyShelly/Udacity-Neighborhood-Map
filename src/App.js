@@ -4,6 +4,7 @@ import './App.css';
 import styles from './Styles';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import escapeRegExp from 'escape-string-regexp';
 // console.log(process.env.REACT_APP_xxx);
 
  const API_KEY =`${process.env.REACT_APP_API_KEY}`
@@ -22,7 +23,8 @@ class App extends Component {
       venues: [],
       markers: [],
       searchVenues: [], // using for filtering when search
-      search: ''
+      search: '',
+      selectMarker: []
    }
   }
 
@@ -94,11 +96,14 @@ class App extends Component {
     // Create 1 infowindow - outside of looping/maping
     let infowindow = new window.google.maps.InfoWindow();
 
+    // Choose icon of marker - when hover on sidebar
+    let defaultIcon = this.makeMarkerIcon('990a3c');
+    let activeIcon = this.makeMarkerIcon('d4c382');
+
     // INSIDE OF VENUES WANT TO CREATE MARKER
       // renderMap runs before we get our updated venues
       // from foursquare.com - in state venues are []
       // => render map after setState venues in fetchVenues
-
     venues.map(item => {
       var position = {lat: item.venue.location.lat, lng: item.venue.location.lng}
       var title = item.venue.name;
@@ -116,6 +121,7 @@ class App extends Component {
         postal: postal,
         id_marker: id,
         animation: window.google.maps.Animation.DROP, //marker falls down
+        icon: defaultIcon
       });
 
       // Added marker to array
@@ -124,6 +130,9 @@ class App extends Component {
       this.setState({
         markers: markers
       })
+
+      // display markers for handleClick for sidebar
+      console.log(markers);
 
       // infowindow.setContent('<div>' +
       // '<h3>' + marker.title + '</h3>' + '</div>')
@@ -140,11 +149,26 @@ class App extends Component {
         infowindow.setContent(infoContent);
         // open the infowindow on map with marker
         infowindow.open(map, marker);
+        // marker.setIcon(activeIcon); nope
       });
         infowindow.addListener('mouseout', function () {
-         infowindow.setMarker = null;
+        // marker.setIcon(defaultIcon);
+        infowindow.setMarker(null);
+        // window.google.maps.event.clearInstanceListeners(marker);
         });
     }) // end of mapping
+  }
+
+  // Create shape and colors of markers
+  makeMarkerIcon = (markerColor) => {
+    let markerImage = new window.google.maps.MarkerImage(
+      'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+      '|40|_|%E2%80%A2',
+      new window.google.maps.Size(22, 30), //top part
+      new window.google.maps.Point(0, 0),
+      new window.google.maps.Point(10, 34),
+      new window.google.maps.Size(22,30));
+    return markerImage;
   }
 
   handleSearch = (event) => {
@@ -157,6 +181,34 @@ class App extends Component {
     // console.log("after filter: " + this.state.venues);
   }
 
+  handleClick = (clickedCafe) => {
+    // I FORGOT .map
+    // handleClick i wrote this.props???
+
+    // check id marker with id of clicked café
+    // if(marker.id_marker === clickedCafe) {
+
+    // }
+    this.state.markers.map(marker => {
+      // console.log(marker.id_marker + "marker id");
+      // console.log(clickedCafe + "cafe id")
+      if(marker.id_marker === clickedCafe) {
+        this.setState({
+          selectMarker: marker
+        })
+        // this creates new classic icon from google
+          // marker.setIcon(this.activeIcon);
+        marker.setIcon(this.makeMarkerIcon('fbff00'));
+
+        // marker.setAnimation(window.google.maps.Animation.BOUNCE);
+        // window.google.maps.event.trigger(marker, 'click');
+      }
+      // outside if will colored all markers
+    })
+    // window.google.maps.event.clearListeners(this.marker, 'click')
+      // marker.setIcon(this.makeMarkerIcon('ce0a4e'))
+  }
+
   render() {
     return (
       <div>
@@ -167,6 +219,7 @@ class App extends Component {
           search={this.state.search}
           searchVenues={this.state.venues}
           handleSearch={this.handleSearch}
+          handleClick={this.handleClick}
         />
         <main>
           <div id="map"></div>
@@ -189,3 +242,25 @@ function runScript(url) {
   // document.head.appendChild(script)
   // reference.insertBefore(script, reference.childNodes[0])
 }
+
+// structure of marker - 128 line
+// 0: _.gf
+// address: "Salztorbrücke"
+// anchorPoint: _.N {x: -0.5, y: -43, j: true}
+// animating: false
+// animation: null
+// changed: ƒ (a)
+// clickable: true
+// closure_uid_471573339: 12
+// gm_accessors_: {map: null, position: null, title: null, address: null, postal: null, …}
+// gm_bindings_: {map: {…}, position: {…}, title: {…}, address: {…}, postal: {…}, …}
+// id_marker: "4bebe0036295c9b634278808"
+// internalPosition: _.P {lat: ƒ, lng: ƒ}
+// map: Pg {gm_bindings_: {…}, __gm: rg, gm_accessors_: {…}, center: _.P, zoom: 15, …}
+// position: _.P {lat: ƒ, lng: ƒ}
+// postal: "1020"
+// title: "Adria"
+// visible: true
+// __e3_: {mouseover: {…}, click: {…}}
+// __gm: {set: _.Sd, qe: null, cc: {…}}
+// __proto__: ff

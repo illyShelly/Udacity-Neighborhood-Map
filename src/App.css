@@ -18,7 +18,7 @@ nav h1 {
   margin: 0;
   font-size: 22px;
   letter-spacing: 2.5px;
-  color: #e1f8f6;
+  color: white;
 }
 
 /* or using div with .sidebar*/
@@ -65,7 +65,7 @@ input[type="text"]::-webkit-input-placeholder {
 ul {
   padding: 0;
   margin:0;
-  background: linear-gradient(to right, #e1f8f6, #3e5468);
+  background: linear-gradient(0.27turn,  #3e5468,  #e1f8f6, #846a04);
 }
 
 .cafe-list li {
@@ -77,8 +77,8 @@ ul {
 
 li:hover {
   /*background: linear-gradient(0.35turn, #3e5468, #e1f8f6);*/
-  /*transition: background-color 0.5s ease;*/
-  background-color: white;
+  transition: background-color 0.3s ease;
+  background-color: #e1f8f6;
   color: #3e5468;
 }
 
@@ -100,7 +100,7 @@ li:hover {
   border-right: 1px solid #999;
   border-radius: 50px 2px;
   /*background: linear-gradient(0.15turn, #990a3c, #0a5b99);*/
-  background: linear-gradient(0.27turn, #3e5468, #e1f8f6, #e6c130);
+  background: linear-gradient(0.2turn, #3e5468, #e1f8f6, #846a04);
 }
 
 /*7E0F4B*/

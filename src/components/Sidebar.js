@@ -4,7 +4,6 @@ class Sidebar extends Component {
   constructor(props) {
     super(props);
       // this.state = {
-
       // }
   }
 
@@ -24,7 +23,10 @@ class Sidebar extends Component {
       {this.props.venues.length !== 0 && (
         <ul className="cafe-list">
           { this.props.venues.map((cafe) => (
-            <li key={cafe.venue.id}
+            // onClick event listener takes cafe's id
+            <li
+              key={cafe.venue.id}
+              onClick={() => this.props.handleClick(cafe.venue.id)}
             >
               {cafe.venue.name}
             </li>
