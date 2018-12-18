@@ -89,7 +89,7 @@ class App extends Component {
 
     let map = new window.google.maps.Map(document.getElementById('map'), {
       center: latLng,
-      zoom: 15,
+      zoom: 14,
       styles: styles,
       mapTypeControl: false, // hide satelite, terene option
       streetViewControl: true,
