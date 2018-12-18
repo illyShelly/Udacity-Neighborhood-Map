@@ -46,7 +46,7 @@ class App extends Component {
       near: 'Vienna',
       lat: 48.208176,
       lng: 16.373819,
-      radius: 800,
+      radius: 1500,
       locale: 'en',
       limit: 50,
       v: "20181412"
