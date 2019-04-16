@@ -1,6 +1,6 @@
 # MyReads Udacity Project
 
-This is Final **Project #8** which is developed for Google Front-End Nanodegree Program at Udacity. This project was made from scratch in React and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).made with REACT.  <!-- Web application is available on **[GithubPages](https://illyShelly.github.io/udacity-final-myreads)** -->
+This is Final **Project #8** which is developed for Google Front-End Nanodegree Program at Udacity. This project was made from scratch in React and bootstrapped with [Create React App](https://github.com/facebook/create-react-app) made with REACT.  <!-- Web application is available on **[GithubPages](https://illyShelly.github.io/udacity-final-myreads)** -->
 
 ## Table of Contents
 

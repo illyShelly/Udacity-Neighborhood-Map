@@ -41,12 +41,12 @@ class App extends Component {
   fetchVenues = () => {
     const param = {
       query: 'coffee',
-      section: 'topPicks',
+      // section: 'topPicks',
       secTwo: 'nextVenue',
       near: 'Vienna',
       lat: 48.208176,
       lng: 16.373819,
-      radius: 1500,
+      radius: 1000,
       locale: 'en',
       limit: 50,
       v: "20181412"
@@ -89,7 +89,7 @@ class App extends Component {
 
     let map = new window.google.maps.Map(document.getElementById('map'), {
       center: latLng,
-      zoom: 14,
+      zoom: 15,
       styles: styles,
       mapTypeControl: false, // hide satelite, terene option
       streetViewControl: true,
