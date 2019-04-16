@@ -45,7 +45,7 @@ my-map
 ## Get Started
 
 #### Interact directly on GithubPages - in progress
-**[GithubPages]()**
+**[GithubPages](https://illyshelly.github.io/Udacity-Neighborhood-Map/#/)**
 
 #### Locally on your machine
 * Download or clone the repo `https://github.com/illyShelly/Udacity-Neighborhood-Map.git`
